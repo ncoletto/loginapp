@@ -1,5 +1,5 @@
 <?php
-$conexion = mysql_connect("localhost", "amphpziw_hermes", "Hermesinteligente5");
+$conexion = mysqli_connect("localhost", "amphpziw_hermes", "Hermesinteligente5");
 mysql_select_db("amphpziw_hermesinteligente", $conexion);
 /* Extrae los valores enviados desde la aplicacion movil */
 $usuarioEnviado = $_GET['usuario'];
