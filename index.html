@@ -47,7 +47,7 @@ $('#formulario').submit(function() {
 // recolecta los valores que inserto el usuario
 var datosUsuario = $("#nombredeusuario").val()
 var datosPassword = $("#clave").val()
-archivoValidacion = "http://localhost/jquerymobile/login2/validacion_de_datos.php?jsoncallback=?"
+archivoValidacion = "http://www.nicolascoletto.com/login/validacion_contra_base_datos.php?jsoncallback=?"
  
 $.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
 .done(function(respuestaServer) {
