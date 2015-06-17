@@ -1,13 +1,12 @@
 <?php
-$conexion = mysqli_connect("localhost", "amphpziw_hermes", "Hermesinteligente5");
-mysql_select_db("amphpziw_hermesinteligente", $conexion);
+$conexion = mysqli_connect("localhost", "amphpziw_hermes", "Hermesinteligente5", "amphpziw_hermesinteligente");
 /* Extrae los valores enviados desde la aplicacion movil */
 $usuarioEnviado = $_GET['usuario'];
 $passwordEnviado = $_GET['password'];
 
 /* revisar existencia del usuario con la contraseña en la bd */
-$sqlCmd = "SELECT nombreUsuario,password,email FROM usuario WHERE nombreUsuario LIKE '".mysqli_real_escape_string($usuarioEnviado)."' AND password=PASSWORD('".mysqli_real_escape_string($passwordEnviado)."') LIMIT 1";
-$sqlQry = mysqli_query($sqlCmd,$sqlHp);
+$sqlCmd = "SELECT nombreUsuario,password,email FROM usuario WHERE nombreUsuario LIKE '".mysqli_real_escape_string($conexion, $usuarioEnviado)."' AND password='".mysqli_real_escape_string($conexion, $passwordEnviado)."' LIMIT 1";
+$sqlQry = mysqli_query($conexion,$sqlCmd);
 if(mysqli_num_rows($sqlQry)>0)
 {
 $login=1;
